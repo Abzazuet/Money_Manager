@@ -1,0 +1,19 @@
+@import url(reset_default.css);
+body {
+  text-align: center;
+}
+table {
+  width: 100%;
+  font-weight: var(--bold-font);
+}
+th, td, table {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+td{
+    font-weight: var(--light-font);
+}
+a{
+    font-weight: var(--bold-font);
+}
+
