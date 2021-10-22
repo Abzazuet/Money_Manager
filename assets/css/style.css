@@ -1,19 +1,65 @@
-@import url(reset_default.css);
 body {
   text-align: center;
+}
+h1{
+    margin-top: 2rem;
 }
 table {
   width: 100%;
   font-weight: var(--bold-font);
 }
-th, td, table {
+th,
+td,
+table {
   border: 1px solid white;
   border-collapse: collapse;
 }
-td{
-    font-weight: var(--light-font);
+td {
+  font-weight: var(--light-font);
 }
-a{
-    font-weight: var(--bold-font);
+a {
+  font-weight: var(--bold-font);
 }
-
+/*Actions*/
+.actions {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 0px 5px 5px 5px var(--bg-color-2);
+  position: fixed;
+  top: 10px;
+  right: 20%;
+  transform: translateX(400%);
+  transition: transform 0.5s ease-in;
+}
+.actions li:not(:last-child){
+    margin-right: 2rem;
+}
+.actions li:last-child{
+    margin-right: .5rem;
+}
+.actions.show {
+  display: block;
+  display: flex;
+  flex-direction: row;
+  transform: translateX(0);
+}
+.add-account{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+}
+.add-account a{
+    background-color: var(--bg-color-2);
+    padding: 0 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px var(--bg-color-2);
+}
+.add-account a:hover{
+    font-size: 1.1em;
+}

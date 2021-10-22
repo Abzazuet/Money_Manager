@@ -15,6 +15,12 @@
     />
   </head>
   <body>
+    <ul class="actions">
+      <li><a href="#" id="action">Add expense</a></li>
+      <li><a href="#" id="action">Add earning</a></li>
+      <li><a href="#" id="action">Delete account</a></li>
+    </ul>
+    <h1>Tracker</h1>
     <table>
       <tr>
         <th>Account</th>
@@ -30,7 +36,9 @@
         <td>$</td>
         <td>Expense</td>
         <td>11/24/2021</td>
-        <td><a href="#" id="action"><i class="fas fa-plus-circle"></i></a></td>
+        <td>
+          <a href="#" id="button-action"><i class="fas fa-plus-circle"></i></a>
+        </td>
       </tr>
       <tr>
         <td>*****222</td>
@@ -38,11 +46,16 @@
         <td>$</td>
         <td>Earning</td>
         <td>11/24/2021</td>
-        <td><a href="#" id="action"><i class="fas fa-plus-circle"></i></a></td>
+        <td>
+          <a href="#" id="action"><i class="fas fa-plus-circle"></i></a>
+        </td>
       </tr>
     </table>
-    <section id="acciones" class="acciones">
+    <section class="add-account">
       <a href="#" id="add_account">Add account</a>
     </section>
+
+    <!--WEB SCRIPTS-->
+    <script src="assets/js/index.js"></script>
   </body>
 </html>

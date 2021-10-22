@@ -10,7 +10,7 @@
   --light-font: 400;
   --regular-font: 700;
   --bold-font: 900;
-  --transition: 0.3s;
+  --transform: 0.3s;
 }
 h1 {
   font-size: 3.8rem;
