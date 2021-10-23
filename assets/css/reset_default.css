@@ -70,3 +70,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+button{
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  margin: 0;
+}

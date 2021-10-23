@@ -15,45 +15,77 @@
     />
   </head>
   <body>
-    <ul class="actions">
-      <li><a href="#" id="action">Add expense</a></li>
-      <li><a href="#" id="action">Add earning</a></li>
-      <li><a href="#" id="action">Delete account</a></li>
-    </ul>
-    <h1>Tracker</h1>
-    <table>
-      <tr>
-        <th>Account</th>
-        <th>Type</th>
-        <th>Balance</th>
-        <th>Movement</th>
-        <th>Date</th>
-        <th>Action</th>
-      </tr>
-      <tr>
-        <td>*****222</td>
-        <td>Savings</td>
-        <td>$</td>
-        <td>Expense</td>
-        <td>11/24/2021</td>
-        <td>
-          <a href="#" id="button-action"><i class="fas fa-plus-circle"></i></a>
-        </td>
-      </tr>
-      <tr>
-        <td>*****222</td>
-        <td>Investment</td>
-        <td>$</td>
-        <td>Earning</td>
-        <td>11/24/2021</td>
-        <td>
-          <a href="#" id="action"><i class="fas fa-plus-circle"></i></a>
-        </td>
-      </tr>
-    </table>
-    <section class="add-account">
-      <a href="#" id="add_account">Add account</a>
-    </section>
+    <div class="blury">
+      <h1>Tracker</h1>
+      <ul class="actions">
+        <li><a href="#" id="expense">Add expense</a></li>
+        <li><a href="#" id="earning">Add earning</a></li>
+        <li><a href="#" id="delete">Delete account</a></li>
+        <li>
+          <a href="#" id="back"> <i class="fas fa-arrow-right"></i></a>
+        </li>
+      </ul>
+      <table id="tabla">
+        <thead>
+          <tr>
+            <th>Account</th>
+            <th>Type</th>
+            <th>Balance</th>
+            <th>Movement</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <section class="add-account">
+        <a href="#" id="add_account">Add account</a>
+      </section>
+    </div>
+    <div class="cont-add-account">
+      <h2>Add Account</h2>
+      <form action="#">
+        <div class="params">
+          <label for="account_num"> Account </label>
+          <input
+            type="number"
+            id="account_num"
+            name="account_num"
+            placeholder="Enter your account number"
+            required
+          />
+        </div>
+        <div class="params">
+          <label for="account_type"> Type </label>
+          <input
+            type="text"
+            id="account_type"
+            name="account_type"
+            placeholder="Enter your account type"
+            required
+          />
+        </div>
+        <div class="params">
+          <label for="account_balance"> Balance </label>
+          <input
+            type="text"
+            id="account_balance"
+            name="account_balance"
+            placeholder="Enter your account balance"
+            required
+          />
+        </div>
+        <div class="boton">
+          <input
+            type="submit"
+            value="Submit"
+            id="submit-btn"
+            class="submit-btn"
+          />
+        </div>
+      </form>
+      <a href="#" class="cerrar"><i class="far fa-times-circle"></i></a>
+    </div>
 
     <!--WEB SCRIPTS-->
     <script src="assets/js/index.js"></script>
