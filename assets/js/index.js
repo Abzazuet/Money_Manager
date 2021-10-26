@@ -32,6 +32,7 @@ class Account {
         accountID[this.num] = { accountNum: this.num, type: this.type, balance: this.balance, movement: this.movement, date: this.date };
         localStorage["accountTable"] = JSON.stringify(accountID);
         let newAccount = document.createElement("tr");
+        newAccount.id = this.num;
         newAccount.innerHTML = `
         <td>${this.num}</td>
         <td>${this.type}</td>
@@ -44,7 +45,6 @@ class Account {
             </a>
         </td>
         `
-
         return newAccount;
     }
 }
@@ -70,12 +70,9 @@ create_account.addEventListener("click", () => {
     table.tBodies[0].appendChild(newAccount.add_to_table());
     add_account_cont.classList.toggle("show");
     blury.classList.toggle("blur");
-    actions = document.querySelectorAll("#button-action");
-    actions.forEach((action) => {
-        action.addEventListener("click", () => {
-            ul.classList.toggle("show");
-        });
+    let actions = document.querySelectorAll("#button-action");
+    actions[actions.length - 1].addEventListener("click", () => {
+        ul.classList.toggle("show");
     });
-    console.log(localStorage["accountTable"]);
 });
 //
