@@ -87,11 +87,12 @@ a {
     transform: translateX(400%);
     transition: transform 0.5s ease-in;
 }
-.cont-add-account input{
+.cont-add-account input, select{
     background-color: var(--bg-color-3);
     color: white;
     border-radius: 5px;
     padding-left: 3px;
+    border: none;
 }
 .cont-add-account.show{
     display: block;
@@ -117,4 +118,9 @@ a {
 .submit-btn:hover{
     color: var(--secondary-color);
     cursor: pointer;
+}
+.params{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px;
 }

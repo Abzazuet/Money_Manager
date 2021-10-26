@@ -37,7 +37,22 @@ class Account {
         <td>${this.num}</td>
         <td>${this.type}</td>
         <td>$${this.balance}</td>
-        <td>${this.movement}</td>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Expense</th>
+                        <th>Earning</th>
+                    </tr>
+                </thead>
+                <tbody id="movements">
+                    <tr>
+                        <td>$58</td>
+                        <td>$95</td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
         <td>${this.date}</td>
         <td>
             <a href="#" id="button-action">

@@ -36,8 +36,7 @@
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-        </tbody>
+        <tbody></tbody>
       </table>
       <section class="add-account">
         <a href="#" id="add_account">Add account</a>
@@ -58,18 +57,17 @@
         </div>
         <div class="params">
           <label for="account_type"> Type </label>
-          <input
-            type="text"
-            id="account_type"
-            name="account_type"
-            placeholder="Enter your account type"
-            required
-          />
+          <select name="type" id="account_type" class="params">
+            <option selected disabled value="">Account Type</option>
+            <option value="Checking">Checking</option>
+            <option value="Saving">Saving</option>
+            <option value="Crypto">Crypto</option>
+          </select>
         </div>
         <div class="params">
           <label for="account_balance"> Balance </label>
           <input
-            type="text"
+            type="number"
             id="account_balance"
             name="account_balance"
             placeholder="Enter your account balance"
@@ -85,7 +83,9 @@
           />
         </div>
       </form>
-      <a href="index.html" class="cerrar"><i class="far fa-times-circle"></i></a>
+      <a href="index.html" class="cerrar"
+        ><i class="far fa-times-circle"></i
+      ></a>
     </div>
 
     <!--WEB SCRIPTS-->
