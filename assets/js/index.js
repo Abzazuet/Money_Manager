@@ -29,34 +29,66 @@ class Account {
         this.date = date;
     }
     add_to_table() {
-        accountID[this.num] = { accountNum: this.num, type: this.type, balance: this.balance, movement: this.movement, date: this.date };
+        accountID[this.num] = {
+            accountNum: this.num, 
+            type: this.type, 
+            balance: this.balance, 
+            movement: this.movement, 
+            date: this.date 
+        };
         localStorage["accountTable"] = JSON.stringify(accountID);
         let newAccount = document.createElement("tr");
         newAccount.id = this.num;
         newAccount.innerHTML = `
-        <td>${this.num}</td>
-        <td>${this.type}</td>
-        <td>$${this.balance}</td>
+        <td>
+            <a href="#" id="delete_account">
+                <i class="fas fa-trash"></i>
+            </a>
+            ${this.num}
+        </td>
+        <td>
+            ${this.type}
+        </td>
         <td>
             <table>
                 <thead>
                     <tr>
-                        <th>Expense</th>
-                        <th>Earning</th>
+                        <th>Action</th>
+                        <th>Amount</th>
+                        <th>Note</th>
+                        <th>Date</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="movements">
                     <tr>
-                        <td>$58</td>
-                        <td>$95</td>
+                        <td>Account Added</td>
+                        <td>$${this.balance}</td>
+                        <td>New Account</td>
+                        <td>${this.date}</td>
+                        <td>
+                            <a href="#" id="button-action">
+                                <i class="fas fa-plus-circle"></i>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td>$${this.balance}</td>
+                        <td>To be defined</td>
+                        <td>${this.date}</td>
+                        <td>
+                        To be defined
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
         </td>
-        <td>${this.date}</td>
         <td>
-            <a href="#" id="button-action">
-            <i class="fas fa-plus-circle"></i>
+            <a href="#" id="add_movement">
+              Add Movement
             </a>
         </td>
         `

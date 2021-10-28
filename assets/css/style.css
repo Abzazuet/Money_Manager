@@ -11,7 +11,10 @@ table {
 }
 th,
 td,
-table {
+table,
+tbody,
+tfoot,
+tr {
   border: 1px solid white;
   border-collapse: collapse;
 }
