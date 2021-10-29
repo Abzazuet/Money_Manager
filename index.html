@@ -26,7 +26,7 @@
           <a href="#" id="back"> <i class="fas fa-arrow-right"></i></a>
         </li>
       </ul>
-      <table id="tabla">
+      <table id="accounts">
         <thead>
           <tr>
             <th>Account</th>
@@ -86,8 +86,53 @@
         ><i class="far fa-times-circle"></i
       ></a>
     </div>
+    <div class="cont-add-movement">
+      <h2>Add Movement</h2>
+      <form action="#" id="form2">
+        <div class="params">
+          <label for="action"> Action </label>
+          <select name="action" id="action" class="params">
+            <option selected disabled value="">Select type of action</option>
+            <option value="Expense">Expense</option>
+            <option value="Earning">Earning</option>
+          </select>
+        </div>
+        <div class="params">
+          <label for="Amount"> Amount </label>
+          <input
+            id="amount"
+            type="number"
+            name="amount"
+            placeholder="Enter amount of money"
+            required
+          />
+        </div>
+        <div class="params">
+          <label for="note"> Balance </label>
+          <input
+            type="text"
+            id="note"
+            name="note"
+            placeholder="Enter any optional notes"
+          />
+        </div>
+        <div class="boton">
+          <input
+            type="submit"
+            value="Submit"
+            id="submit-movement"
+            class="submit-btn"
+          />
+        </div>
+      </form>
+      <a href="index.html" class="cerrar"
+        ><i class="far fa-times-circle"></i
+      ></a>
+    </div>
 
     <!--WEB SCRIPTS-->
+    <script src="assets/js/Movement.js"></script>
+    <script src="assets/js/Account.js"></script>
     <script src="assets/js/index.js"></script>
   </body>
 </html>
