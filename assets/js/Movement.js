@@ -1,5 +1,5 @@
 class Movement {
-    constructor(account, action, amount, note, date) {
+    constructor(action, amount, note, date) {
         this.action = action;
         this.amount = amount;
         this.note = note;
