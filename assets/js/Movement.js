@@ -1,14 +1,13 @@
 class Movement {
-    constructor(action, amount, note, date) {
+    constructor(account, action, amount, note, date) {
         this.action = action;
         this.amount = amount;
         this.note = note;
         this.date = date;
+        this.newMovement = document.createElement("tr");
     }
     add_to_table() {
-        
-        let newMovement = document.createElement("tr");
-        newMovement.innerHTML= (
+        this.newMovement.innerHTML= (
             `
             <td>${this.action}</td>
             <td>$${this.amount}</td>
@@ -22,7 +21,6 @@ class Movement {
             </td>
             `
         );
-        console.log(newMovement);
-        return newMovement;
+        return this.newMovement;
     }
 }
