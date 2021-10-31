@@ -5,15 +5,15 @@ class Account {
         this.balance = balance;
         this.movement = movement;
         this.date = date;
-        this.newAccount=document.createElement("tr");
+        this.newAccount = document.createElement("tr");
     }
     add_to_table() {
         accountID[this.num] = {
-            accountNum: this.num, 
-            type: this.type, 
-            balance: this.balance, 
-            movement: this.movement, 
-            date: this.date 
+            accountNum: this.num,
+            type: this.type,
+            balance: this.balance,
+            movement: this.movement,
+            date: this.date
         };
         localStorage["accountTable"] = JSON.stringify(accountID);
         this.newAccount.id = this.num;
@@ -39,9 +39,6 @@ class Account {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        
-                    </tr>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -63,5 +60,14 @@ class Account {
         </td>
         `
         return this.newAccount;
+    }
+    retrive_all() {
+
+    }
+    save_all() {
+
+    }
+    destroy() {
+
     }
 }

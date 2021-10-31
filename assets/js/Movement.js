@@ -1,5 +1,6 @@
 class Movement {
-    constructor(action, amount, note, date) {
+    constructor(id, action, amount, note, date) {
+        this.id = id;
         this.action = action;
         this.amount = amount;
         this.note = note;
@@ -7,7 +8,7 @@ class Movement {
         this.newMovement = document.createElement("tr");
     }
     add_to_table() {
-        this.newMovement.innerHTML= (
+        this.newMovement.innerHTML = (
             `
             <td>${this.action}</td>
             <td>$${this.amount}</td>
@@ -22,5 +23,14 @@ class Movement {
             `
         );
         return this.newMovement;
+    }
+    retrive_all() {
+
+    }
+    save_all() {
+
+    }
+    destroy() {
+
     }
 }

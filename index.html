@@ -17,7 +17,8 @@
   <body>
     <div class="blury">
       <h1>Tracker</h1>
-      <ul class="actions">
+      <!--MOvements Actions at the top but hidden-->
+      <ul class="movement-actions">
         <li><a href="#" id="edit_amount">Edit Amount</a></li>
         <li><a href="#" id="edit_note">Edit Note</a></li>
         <li><a href="#" id="edit_date">Edit Date</a></li>
@@ -41,6 +42,7 @@
         <a href="#" id="add_account">Add account</a>
       </section>
     </div>
+    <!--Add accounts at the top but hidden-->
     <div class="cont-add-account">
       <h2>Add Account</h2>
       <form action="#" id="form">
@@ -61,6 +63,7 @@
             <option value="Checking">Checking</option>
             <option value="Saving">Saving</option>
             <option value="Crypto">Crypto</option>
+            <option value="Wallet">Wallet</option>
           </select>
         </div>
         <div class="params">
@@ -77,15 +80,14 @@
           <input
             type="submit"
             value="Submit"
-            id="submit-btn"
+            id="submit-account"
             class="submit-btn"
           />
         </div>
       </form>
-      <a href="index.html" class="cerrar"
-        ><i class="far fa-times-circle"></i
-      ></a>
+      <a href="#" class="close-window"><i class="far fa-times-circle"></i></a>
     </div>
+    <!--Add Movements at the top but hidden-->
     <div class="cont-add-movement">
       <h2>Add Movement</h2>
       <form action="#" id="form2">
@@ -95,6 +97,7 @@
             <option selected disabled value="">Select type of action</option>
             <option value="Expense">Expense</option>
             <option value="Earning">Earning</option>
+            <option value="Savings">Savings</option>
           </select>
         </div>
         <div class="params">
@@ -108,7 +111,7 @@
           />
         </div>
         <div class="params">
-          <label for="note"> Balance </label>
+          <label for="note"> Note </label>
           <input
             type="text"
             id="note"
@@ -125,9 +128,7 @@
           />
         </div>
       </form>
-      <a href="index.html" class="cerrar"
-        ><i class="far fa-times-circle"></i
-      ></a>
+      <a href="#" class="close-window"><i class="far fa-times-circle"></i></a>
     </div>
 
     <!--WEB SCRIPTS-->

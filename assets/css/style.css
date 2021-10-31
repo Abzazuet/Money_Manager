@@ -31,7 +31,7 @@ a {
   filter: blur(8px);
 }
 /*Actions*/
-.actions {
+.movement-actions {
   display: flex;
   flex-direction: row;
   background-color: transparent;
@@ -47,13 +47,13 @@ a {
   transform: translateX(400%);
   transition: transform 0.5s ease-in;
 }
-.actions li:not(:last-child) {
+.movement-actions li:not(:last-child) {
   margin-right: 2rem;
 }
-.actions li:last-child {
+.movement-actions li:last-child {
   margin-right: 0.5rem;
 }
-.actions.show {
+.movement-actions.show{
   display: block;
   display: flex;
   flex-direction: row;
