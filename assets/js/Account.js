@@ -1,6 +1,6 @@
 class Account {
     constructor(num, type, balance, movement = " ", date = " ") {
-        this.num = num;
+        this.id = num;
         this.type = type;
         this.balance = balance;
         this.movement = movement;
@@ -8,32 +8,32 @@ class Account {
         this.newAccount = document.createElement("tr");
     }
     add_to_table() {
-        accountID[this.num] = {
-            accountNum: this.num,
+        accountID[this.id] = {
+            accountNum: this.id,
             type: this.type,
             balance: this.balance,
             movement: this.movement,
             date: this.date
         };
         localStorage["accountTable"] = JSON.stringify(accountID);
-        this.newAccount.id = this.num;
+        this.newAccount.id = this.id;
         this.newAccount.innerHTML = `
         <td>
-            <a href="#" id="delete_account">
+            <a href="#" id="delete_account_${this.id}">
                 <i class="fas fa-trash"></i>
             </a>
-            ${this.num}
+            ${this.id}
         </td>
         <td>
             ${this.type}
         </td>
         <td>
-            <table id="movements_${this.num}">
+            <table id="movements_${this.id}">
                 <thead>
                     <tr>
                         <th>Transaction</th>
                         <th>Amount</th>
-                        <th>Note</th>
+                        <th>Purpose</th>
                         <th>Date</th>
                         <th>Action</th>
                     </tr>
@@ -54,8 +54,9 @@ class Account {
             </table>
         </td>
         <td>
-            <a href="#" id="add_movement_${this.num}">
-              Add Movement
+            <a href="#" id="add_movement_${this.id}">
+            <i class="fas fa-plus-circle"></i>
+            Movement
             </a>
         </td>
         `

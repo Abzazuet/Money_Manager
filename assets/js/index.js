@@ -17,8 +17,9 @@ const create_movement_button = document.querySelector("#submit-movement");
 const close_window_button = document.querySelectorAll(".close-window");
 //GLOBAL
 let accountID = {};
+let movementID ={};
 let accounts;
-let num_movement;
+let belong_to_account;
 //Prevent form from reloading
 var form = document.getElementById("form");
 function handleForm(event) {
@@ -43,6 +44,7 @@ close_window_button.forEach((button) => {
         add_account_cont.classList.remove("show");
         blury.classList.remove("blur");
         add_movement_cont.classList.remove("show");
+        movement_actions.classList.remove("show");
     });
 });
 
@@ -53,29 +55,30 @@ create_account_button.addEventListener("click", () => {
     let cd = new Date();
     let newAccount = new Account(num, type, balance, "Added", `${cd.getMonth() + 1}/${cd.getDate()}/${cd.getFullYear()}`);
     accounts_table.tBodies[0].appendChild(newAccount.add_to_table());
-    add_account_cont.classList.toggle("show");
-    blury.classList.toggle("blur");
+    add_account_cont.classList.remove("show");
+    blury.classList.remove("blur");
+    movement_actions.classList.remove("show");
     //MOVEMENT BUTTON
     let movements_button;
     movements_button = document.getElementById(`add_movement_${num}`);
     movements_button.addEventListener("click", () => {
-        num_movement = movements_button.id.match(numRegex).toString().replace(/,/g, "");
+        belong_to_account = movements_button.id.match(numRegex).toString().replace(/,/g, "");
         add_movement_cont.classList.toggle("show");
         blury.classList.toggle("blur");
     });
 });
 //
 create_movement_button.addEventListener("click", () => {
-
-    let movement_table = document.getElementById(`movements_${num_movement}`);
+    movement_actions.classList.remove("show");
+    let movement_table = document.getElementById(`movements_${belong_to_account}`);
     let action = document.getElementById("action").value;
     let amount = document.getElementById("amount").value;
-    let note = document.getElementById("note").value;
+    let purpose = document.getElementById("purpose").value;
     let cd = new Date();
-    let newMovement = new Movement(num_movement, action, amount, note, `${cd.getMonth() + 1}/${cd.getDate()}/${cd.getFullYear()}`);
+    let newMovement = new Movement(belong_to_account, action, amount, purpose, `${cd.getMonth() + 1}/${cd.getDate()}/${cd.getFullYear()}`);
     form2.addEventListener('submit', handleForm);
     movement_table.tBodies[0].appendChild(newMovement.add_to_table());
-    let actions = document.querySelectorAll("#edit_movement");
+    let actions = document.querySelectorAll(".edit_movement");
     actions[actions.length - 1].addEventListener("click", () => {
         movement_actions.classList.toggle("show");
     });

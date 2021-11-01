@@ -20,7 +20,7 @@
       <!--MOvements Actions at the top but hidden-->
       <ul class="movement-actions">
         <li><a href="#" id="edit_amount">Edit Amount</a></li>
-        <li><a href="#" id="edit_note">Edit Note</a></li>
+        <li><a href="#" id="edit_purpose">Edit Purpose</a></li>
         <li><a href="#" id="edit_date">Edit Date</a></li>
         <li><a href="#" id="delete_movement">Delete Movement</a></li>
         <li>
@@ -60,10 +60,10 @@
           <label for="account_type"> Type </label>
           <select name="type" id="account_type" class="params">
             <option selected disabled value="">Account Type</option>
-            <option value="Checking">Checking</option>
-            <option value="Saving">Saving</option>
-            <option value="Crypto">Crypto</option>
-            <option value="Wallet">Wallet</option>
+            <option value="checking">Checking</option>
+            <option value="saving">Saving</option>
+            <option value="crypto">Crypto</option>
+            <option value="wallet">Wallet</option>
           </select>
         </div>
         <div class="params">
@@ -95,9 +95,9 @@
           <label for="action"> Action </label>
           <select name="action" id="action" class="params">
             <option selected disabled value="">Select type of action</option>
-            <option value="Expense">Expense</option>
-            <option value="Earning">Earning</option>
-            <option value="Savings">Savings</option>
+            <option value="expense">Expense</option>
+            <option value="earning">Earning</option>
+            <option value="savings">Savings</option>
           </select>
         </div>
         <div class="params">
@@ -111,13 +111,17 @@
           />
         </div>
         <div class="params">
-          <label for="note"> Note </label>
-          <input
-            type="text"
-            id="note"
-            name="note"
-            placeholder="Enter any optional notes"
-          />
+          <label for="purpose"> Purpose </label>
+          <select name="purpose" id="purpose" class="params">
+            <option selected disabled value="Nan">Select type of action</option>
+            <option value="goods">Goods</option>
+            <option value="car">Car</option>
+            <option value="house">House</option>
+            <option value="clothes">Clothes</option>
+            <option value="food">Food</option>
+            <option value="travel">Travel</option>
+            <option value="debt">Debt</option>
+          </select>
         </div>
         <div class="boton">
           <input
