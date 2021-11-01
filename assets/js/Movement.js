@@ -1,28 +1,35 @@
 class Movement {
     constructor(account, action, amount, purpose, date) {
-        let newId = document.getElementById(account).getElementsByClassName("edit_movement").length+1;
-        this.id = account+"_"+newId;
-        this.account = account;
-        this.action = action[0].toUpperCase()+action.substring(1);
-        this.amount = amount;
-        this.purpose = purpose[0].toUpperCase()+purpose.substring(1);
-        this.date = date;
-        this.newMovement = document.createElement("tr");
+        try {
+            let newId = document.getElementById(account).getElementsByClassName("edit_movement").length + 1;
+            this.id = account + "_" + newId;
+            this.account = account;
+            this.action = action[0].toUpperCase() + action.substring(1);
+            this.amount = amount;
+            this.purpose = purpose[0].toUpperCase() + purpose.substring(1);
+            this.date = date;
+            this.newMovement = document.createElement("tr");
+            movementID[this.id] = {
+                account: this.account,
+                action: this.action,
+                amount: this.amount,
+                purpose: this.purpose,
+                date: this.date
+            };
+        }
+        catch (e) {
+        }
+
     }
     add_to_table() {
-        movementID[this.id] = {
-            account: this.account,
-            action: this.action,
-            amount: this.amount,
-            purpose: this.purpose,
-            date: this.date
-        };
+        let movement_table = document.getElementById(`movements_${this.account}`);
+
         localStorage["movementTable"] = JSON.stringify(movementID);
         this.newMovement.id = this.id;
         this.newMovement.innerHTML = (
             `
             <td>${this.action}</td>
-            <td>$${this.amount}</td>
+            <td class="max-width-table">$${this.amount}</td>
             <td>${this.purpose}</td>
             <td>${this.date}</td>
             <td>
@@ -33,15 +40,11 @@ class Movement {
             </td>
             `
         );
+        movement_table.tBodies[0].appendChild(this.newMovement);
+        let actions = document.querySelector(`#edit_movement_${this.id}`);
+        actions.addEventListener("click", () => {
+            movement_actions.classList.toggle("show");
+        });
         return this.newMovement;
-    }
-    retrive_all() {
-
-    }
-    save_all() {
-
-    }
-    destroy() {
-
     }
 }

@@ -1,13 +1,11 @@
 class Account {
     constructor(num, type, balance, movement = " ", date = " ") {
         this.id = num;
-        this.type = type[0].toUpperCase()+type.substring(1);
+        this.type = type[0].toUpperCase() + type.substring(1);
         this.balance = balance;
         this.movement = movement;
         this.date = date;
         this.newAccount = document.createElement("tr");
-    }
-    add_to_table() {
         accountID[this.id] = {
             accountNum: this.id,
             type: this.type,
@@ -16,6 +14,8 @@ class Account {
             date: this.date
         };
         localStorage["accountTable"] = JSON.stringify(accountID);
+    }
+    add_to_table() {
         this.newAccount.id = this.id;
         this.newAccount.innerHTML = `
         <td>
@@ -42,12 +42,12 @@ class Account {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td>Total</td>
-                        <td>$</td>
-                        <td>Tbd</td>
+                        <th>Total</th>
+                        <th>$</th>
+                        <td></td>
                         <td></td>
                         <td>
-                        Tbd
+                        
                         </td>
                     </tr>
                 </tfoot>
@@ -60,15 +60,21 @@ class Account {
             </a>
         </td>
         `
+        accounts_table.tBodies[0].appendChild(this.newAccount);
+        let add_movement = document.getElementById(`add_movement_${this.id}`);
+        let delete_account = document.getElementById(`delete_account_${this.id}`);
+        add_movement.addEventListener("click", () => {
+            belong_to_account = add_movement.id.match(numRegex).toString().replace(/,/g, "");
+            add_movement_cont.classList.toggle("show");
+            blury.classList.toggle("blur");
+        });
+        delete_account.addEventListener("click", () => {
+            this.newAccount.innerHTML = "";
+            accountID[this.id] = {
+            };
+            
+            localStorage["accountTable"] = JSON.stringify(accountID);
+        });
         return this.newAccount;
-    }
-    retrive_all() {
-
-    }
-    save_all() {
-
-    }
-    destroy() {
-
     }
 }

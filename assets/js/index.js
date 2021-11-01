@@ -17,19 +17,43 @@ const create_movement_button = document.querySelector("#submit-movement");
 const close_window_button = document.querySelectorAll(".close-window");
 //GLOBAL
 let accountID = {};
-let movementID ={};
+let movementID = {};
 let accounts;
 let belong_to_account;
 //Prevent form from reloading
-var form = document.getElementById("form");
-function handleForm(event) {
-    event.preventDefault();
+function retrieveAllAccounts(accounts) {
+    //Load everythin in the database
+    let keysAccount = Object.keys(JSON.parse(accounts));
+    let acc = JSON.parse(accounts);
+    for (let i = 0; i < keysAccount.length; i++) {
+        let accData = acc[keysAccount[i]];
+        if (accData.type==undefined){
+            continue;
+        }
+        let newAccount = new Account(accData.accountNum, accData.type, accData.balance, accData.movement, accData.date);
+        accounts_table.tBodies[0].appendChild(newAccount.add_to_table());
+    }
 }
-form.addEventListener('submit', handleForm);
-let form2 = document.getElementById("form2");
-function handleForm(event) {
-    event.preventDefault();
+function retrieveAllMovements(movements) {
+    //Load everythin in the database
+    let keysMovements = Object.keys(JSON.parse(movements));
+    let movement = JSON.parse(movements);
+    for (let i = 0; i < keysMovements.length; i++) {
+        let movementInfo = movement[keysMovements[i]];
+        let newMovement = new Movement(movementInfo.account, movementInfo.action, movementInfo.amount, movementInfo.purpose, movementInfo.date);
+        newMovement.add_to_table();
+    }
 }
+try {
+    retrieveAllAccounts(localStorage["accountTable"]);
+    retrieveAllMovements(localStorage["movementTable"]);
+}
+catch (e) {
+    console.log(e)
+}
+
+
+
 account_actions.forEach((account) => {
     account.addEventListener("click", () => {
         movement_actions.classList.toggle("show");
@@ -54,34 +78,19 @@ create_account_button.addEventListener("click", () => {
     let balance = document.getElementById("account_balance").value;
     let cd = new Date();
     let newAccount = new Account(num, type, balance, "Added", `${cd.getMonth() + 1}/${cd.getDate()}/${cd.getFullYear()}`);
-    accounts_table.tBodies[0].appendChild(newAccount.add_to_table());
+    newAccount.add_to_table();
     add_account_cont.classList.remove("show");
     blury.classList.remove("blur");
     movement_actions.classList.remove("show");
-    //MOVEMENT BUTTON
-    let movements_button;
-    movements_button = document.getElementById(`add_movement_${num}`);
-    movements_button.addEventListener("click", () => {
-        belong_to_account = movements_button.id.match(numRegex).toString().replace(/,/g, "");
-        add_movement_cont.classList.toggle("show");
-        blury.classList.toggle("blur");
-    });
 });
 //
 create_movement_button.addEventListener("click", () => {
-    movement_actions.classList.remove("show");
-    let movement_table = document.getElementById(`movements_${belong_to_account}`);
     let action = document.getElementById("action").value;
     let amount = document.getElementById("amount").value;
     let purpose = document.getElementById("purpose").value;
     let cd = new Date();
     let newMovement = new Movement(belong_to_account, action, amount, purpose, `${cd.getMonth() + 1}/${cd.getDate()}/${cd.getFullYear()}`);
-    form2.addEventListener('submit', handleForm);
-    movement_table.tBodies[0].appendChild(newMovement.add_to_table());
-    let actions = document.querySelectorAll(".edit_movement");
-    actions[actions.length - 1].addEventListener("click", () => {
-        movement_actions.classList.toggle("show");
-    });
+    newMovement.add_to_table();
     add_movement_cont.classList.remove("show");
     blury.classList.remove("blur");
 });
