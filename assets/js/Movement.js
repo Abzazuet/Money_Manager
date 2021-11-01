@@ -3,9 +3,9 @@ class Movement {
         let newId = document.getElementById(account).getElementsByClassName("edit_movement").length+1;
         this.id = account+"_"+newId;
         this.account = account;
-        this.action = action;
+        this.action = action[0].toUpperCase()+action.substring(1);
         this.amount = amount;
-        this.purpose = purpose;
+        this.purpose = purpose[0].toUpperCase()+purpose.substring(1);
         this.date = date;
         this.newMovement = document.createElement("tr");
     }

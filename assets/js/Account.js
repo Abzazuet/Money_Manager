@@ -1,7 +1,7 @@
 class Account {
     constructor(num, type, balance, movement = " ", date = " ") {
         this.id = num;
-        this.type = type;
+        this.type = type[0].toUpperCase()+type.substring(1);
         this.balance = balance;
         this.movement = movement;
         this.date = date;
