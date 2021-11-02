@@ -31,23 +31,27 @@ class Account {
             <table id="movements_${this.id}">
                 <thead>
                     <tr>
-                        <th>Transaction</th>
-                        <th>Amount</th>
-                        <th>Purpose</th>
-                        <th>Date</th>
-                        <th>Action</th>
+                        <th class="max-width-table">Transaction</th>
+                        <th class="max-width-table">Amount</th>
+                        <th class="max-width-table">Purpose</th>
+                        <th class="max-width-table">Date</th>
+                        <th class="max-width-table">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Total</th>
-                        <th>$</th>
-                        <td></td>
-                        <td></td>
-                        <td>
-                        
+                        <th class="max-width-table">Total</th>
+                        <td class="max-width-table" id="total_${this.id}">$${this.balance}</td>
+                        <th class="max-width-table">Initial</th>
+                        <td class="max-width-table">$${this.balance}</td>
+                        <td class="max-width-table">
                         </td>
                     </tr>
                 </tfoot>

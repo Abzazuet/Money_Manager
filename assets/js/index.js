@@ -27,7 +27,7 @@ function retrieveAllAccounts(accounts) {
     let acc = JSON.parse(accounts);
     for (let i = 0; i < keysAccount.length; i++) {
         let accData = acc[keysAccount[i]];
-        if (accData.type==undefined){
+        if (accData.type == undefined) {
             continue;
         }
         let newAccount = new Account(accData.accountNum, accData.type, accData.balance, accData.movement, accData.date);
@@ -37,6 +37,25 @@ function retrieveAllAccounts(accounts) {
 function retrieveAllMovements(movements) {
     //Load everythin in the database
     let keysMovements = Object.keys(JSON.parse(movements));
+    let p = JSON.parse(localStorage["movementTable"]);
+    try {
+        keysMovements.map(movement => {
+            let total_id = document.getElementById(`total_${p[movement].account}`);
+            let total = parseInt(total_id.innerHTML.substring(1));
+            let action = p[movement].action;
+            let amount = p[movement].amount;
+            if (action == "Expense") {
+                total -= parseInt(amount);
+            }
+            else {
+                total += parseInt(amount);
+            }
+            total_id.innerHTML = `$${total}`;
+        });
+    }
+    catch(e){
+        console.log(e);
+    }
     let movement = JSON.parse(movements);
     for (let i = 0; i < keysMovements.length; i++) {
         let movementInfo = movement[keysMovements[i]];

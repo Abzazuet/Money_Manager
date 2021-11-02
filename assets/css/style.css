@@ -4,23 +4,31 @@ body {
 h1 {
   margin-top: 2rem;
 }
-table {
-    display: table;
-  width: 100%;
+#accounts {
+  display: table;
+  width: 90%;
   font-weight: var(--bold-font);
+  margin: auto;
+}
+table{
+    width: 100%;
 }
 th,
 td,
 table,
-tbody,
-tfoot,
 tr {
-  border: 1px solid white;
+  border: 1px solid rgb(224, 211, 211);
   border-collapse: collapse;
   text-align: center;
+  
 }
-.max-width-table{
-    max-width: 50px;
+
+.max-width-table {
+  width: 3rem;
+}
+tfoot{
+    font-weight: var(--bold-font);
+    color: var(--terciary-color);
 }
 td {
   font-weight: var(--light-font);
@@ -58,7 +66,7 @@ a {
 .movement-actions li:last-child {
   margin-right: 0.5rem;
 }
-.movement-actions.show{
+.movement-actions.show {
   display: block;
   display: flex;
   flex-direction: row;
@@ -97,7 +105,8 @@ a {
 }
 .cont-add-account input,
 select,
-.cont-add-movement input, select {
+.cont-add-movement input,
+select {
   background-color: var(--bg-color-3);
   color: white;
   border-radius: 5px;
@@ -134,5 +143,4 @@ select,
 .params {
   display: flex;
   flex-direction: column;
-  border-bottom: 2px;
 }

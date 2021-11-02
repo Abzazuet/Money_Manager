@@ -23,16 +23,15 @@ class Movement {
     }
     add_to_table() {
         let movement_table = document.getElementById(`movements_${this.account}`);
-
         localStorage["movementTable"] = JSON.stringify(movementID);
         this.newMovement.id = this.id;
         this.newMovement.innerHTML = (
             `
-            <td>${this.action}</td>
+            <td class="max-width-table">${this.action}</td>
             <td class="max-width-table">$${this.amount}</td>
-            <td>${this.purpose}</td>
-            <td>${this.date}</td>
-            <td>
+            <td class="max-width-table">${this.purpose}</td>
+            <td class="max-width-table">${this.date}</td>
+            <td class="max-width-table">
                 <a href="#" id="edit_movement_${this.id}" class="edit_movement">
                 <i class="fas fa-edit"></i>
                 Movement
